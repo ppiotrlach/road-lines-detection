@@ -5,16 +5,26 @@ import matplotlib.pyplot as plt
 LINES_COLOR_RGB = (255, 0, 0)
 LINE_THICKNESS = 10
 
-TEST_VIDEO = "test_LA.mp4"
+TEST_VIDEO = "/assets/german_strasse.mp4"
+
+# # Region of interest triangle german_strasse.mp4 (1280x720)
+# TRIANGLE_VERTEX_X_DOWN_LEFT = 100
+# TRIANGLE_VERTEX_X_DOWN_RIGHT = 1130
+# TRIANGLE_VERTEX_UPPER = (630, 370)
+
+# Region of interest triangle LA_ride.mp4 (1280x720)
+TRIANGLE_VERTEX_X_DOWN_LEFT = 300
+TRIANGLE_VERTEX_X_DOWN_RIGHT = 1200
+TRIANGLE_VERTEX_UPPER = (630, 370)
+
+# # Region of interest triangle poor_quality.mp4 (1280x720)
+# TRIANGLE_VERTEX_X_DOWN_LEFT = 30
+# TRIANGLE_VERTEX_X_DOWN_RIGHT = 1200
+# TRIANGLE_VERTEX_UPPER = (630, 370)
 
 # Canny contrast
 CANNY_LOW_THRESHOLD = 50
 CANNY_HIGH_THRESHOLD = 150
-
-# Region of interest triangle testLA.mp4 (1280x720)
-TRIANGLE_VERTEX_X_DOWN_LEFT = 300
-TRIANGLE_VERTEX_X_DOWN_RIGHT = 1200
-TRIANGLE_VERTEX_UPPER = (630, 370)
 
 # Slopes
 MIN_POSITIVE_SLOPE = 0.8
@@ -63,7 +73,6 @@ def average_slope_intercept(image, lines):
     return np.array(result)
 
 def canny(image):
-    # gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(gray, (5,5), 0) 
     canny = cv2.Canny(blur, CANNY_LOW_THRESHOLD, CANNY_HIGH_THRESHOLD)

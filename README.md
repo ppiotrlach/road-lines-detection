@@ -7,20 +7,26 @@ This code is a Python script for detecting and drawing road lines in a video usi
 To use the code, follow these steps:
 
 Create a virtual environment using Python 3:
+
 ```
 python3 -m venv venv/
 ```
 <br>
+
 Activate the virtual environment:
 ```
 . venv/bin/activate
 ```
 <br>
+
 Install the required dependencies using pip:
+
 ```
 pip install -r requirements.txt
 ```
+
 <br>
+
 Run the Python script:
 ```
 python3 road_lines_detector.py
